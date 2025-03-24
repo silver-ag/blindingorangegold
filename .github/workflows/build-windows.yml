@@ -34,4 +34,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: "blinding orange-gold"
-        path: dist/blindingorangegold
+        path: dist/blindingorangegold.exe
