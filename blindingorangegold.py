@@ -8,13 +8,16 @@ import pygame.freetype
 import textwrap
 import math
 from script import scriptdata, prayscriptdata
+import sys, os
+
+os.chdir(sys._MEIPASS)
 
 class Game:
     def __init__(self, script):
         pg.init()
         self.script = script
-        self.dialogue_font = pg.freetype.Font('Freeride.otf', 30)
-        self.speaker_font = pg.freetype.Font('Freeride.otf', 35)
+        self.dialogue_font = pg.freetype.Font('assets/fonts/Freeride.otf', 30)
+        self.speaker_font = pg.freetype.Font('assets/fonts/Freeride.otf', 35)
         self.dialogue_box = pg.Surface((0,0))
         self.dialogue_textsfc = pg.Surface((0,0))
         self.dialogue_speaker = pg.Surface((0,0))
@@ -29,7 +32,7 @@ class Game:
         screen = pg.display.set_mode((640,640))
         clock = pg.time.Clock()
         pg.display.set_caption('blinding orange-gold')
-        pg.mixer.music.load('thememusic.mp3')
+        pg.mixer.music.load('assets/music/thememusic.mp3')
         pg.mixer.music.set_volume(0.05)
         pg.mixer.music.play(-1)
         scene = Scene(self.script.scene_bg, self.script.scene_fg, self.script.scene_pxgetter)
@@ -117,12 +120,12 @@ class Game:
             changed = False
     def update_settings(self, settings, scene):
         if settings["clearer font"]:
-            self.dialogue_font = pg.freetype.Font('Lexend-VariableFont_wght.ttf', 27)
-            self.speaker_font = pg.freetype.Font('Lexend-VariableFont_wght.ttf', 32)
+            self.dialogue_font = pg.freetype.Font('assets/fonts/Lexend-VariableFont_wght.ttf', 27)
+            self.speaker_font = pg.freetype.Font('assets/fonts/Lexend-VariableFont_wght.ttf', 32)
             self.textwidth = 40
         else:
-            self.dialogue_font = pg.freetype.Font('Freeride.otf', 30)
-            self.speaker_font = pg.freetype.Font('Freeride.otf', 35)
+            self.dialogue_font = pg.freetype.Font('assets/fonts/Freeride.otf', 30)
+            self.speaker_font = pg.freetype.Font('assets/fonts/Freeride.otf', 35)
             self.textwidth = 50
         if settings["effects off"]:
             scene.params_scale = 0

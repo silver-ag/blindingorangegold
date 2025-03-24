@@ -29,7 +29,7 @@ jobs:
         pip install pygame pyinstaller
     - name: Generate Executable
       run: |
-        pyinstaller --onefile blindingorangegold.py
+        pyinstaller --add-data assets:assets --onefile blindingorangegold.py
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
